@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+    <constant name="struts.action.extension" value=""/>
+    <constant name="struts.devMode" value="true" />
+
+    <package name="basicstruts2" extends="struts-default">
+        <default-action-ref name="index"/>
+        <action name="index" class="action.InformationAction" method="list">
+            <result>WEB-INF/information/list.jsp</result>
+        </action>
+        <action name="create" class="action.InformationAction" method="createInformation">
+            <result name="input">/WEB-INF/information/form.jsp</result>
+        </action>
+        <action name="delete" class="action.InformationAction" method="Delete">
+            <result name="success" type="redirectAction">index</result>
+        </action>
+        <action name="updated" class="action.InformationAction" method="Updated">
+            <result name="success" type="redirectAction">index</result>
+        </action>
+        <action name="getById" class="action.InformationAction" method="getById">
+            <result name="input">/WEB-INF/information/update.jsp</result>
+        </action>
+        <action name="save" class="action.InformationAction" method="Save">
+            <result name="success" type="redirectAction">index</result>
+            <result name="input">/WEB-INF/information/form.jsp</result>
+        </action>
+    </package>
+
+</struts>
